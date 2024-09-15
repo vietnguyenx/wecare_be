@@ -1,0 +1,15 @@
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\bin\Debug\net8.0\Wecare.Services.deps.json
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\bin\Debug\net8.0\Wecare.Services.dll
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\bin\Debug\net8.0\Wecare.Services.pdb
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.AssemblyInfoInputs.cache
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.AssemblyInfo.cs
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.csproj.CoreCompileInputs.cache
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.dll
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\refint\Wecare.Services.dll
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.pdb
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\ref\Wecare.Services.dll
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\bin\Debug\net8.0\Wecare.Repositories.dll
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\bin\Debug\net8.0\Wecare.Repositories.pdb
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.Services.csproj.AssemblyReference.cache
+D:\LearningMaterials\College\Wecare\Wecare\Wecare.Services\obj\Debug\net8.0\Wecare.S.F9B2F837.Up2Date
