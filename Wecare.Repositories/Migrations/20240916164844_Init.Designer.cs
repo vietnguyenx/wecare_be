@@ -12,7 +12,7 @@ using WeCare.Repositories.Data;
 namespace Wecare.Repositories.Migrations
 {
     [DbContext(typeof(WeCareDbContext))]
-    [Migration("20240916024847_Init")]
+    [Migration("20240916164844_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -352,6 +352,10 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
@@ -359,6 +363,9 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DOB")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -387,6 +394,10 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

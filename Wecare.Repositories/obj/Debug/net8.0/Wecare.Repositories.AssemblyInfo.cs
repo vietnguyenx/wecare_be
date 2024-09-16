@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wecare.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c39e64d467ff6e3187c2787a6376ab5280c5eebf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wecare.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wecare.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

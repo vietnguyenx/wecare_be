@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Wecare.Repositories.Data.Entities;
 using Wecare.Repositories.Repositories.Base;
+using Wecare.Repositories.Repositories.Repositories.Interface;
 using Wecare.Repositories.Repositories.UnitOfWork.Interface;
 
 namespace Wecare.Services.Base
@@ -19,28 +20,28 @@ namespace Wecare.Services.Base
     public abstract class BaseService<TEntity> : BaseService
         where TEntity : BaseEntity
     {
-        //protected readonly IMapper _mapper;
+        protected readonly IMapper _mapper;
 
-        //protected readonly IHttpContextAccessor _httpContextAccessor;
+        protected readonly IHttpContextAccessor _httpContextAccessor;
 
-        //protected readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork _unitOfWork;
 
-        //private readonly IUserRepository __userRepository;
+        private readonly IUserRepository __userRepository;
 
-        //private readonly IBaseRepository<TEntity> __repository;
+        private readonly IBaseRepository<TEntity> __repository;
 
-        //protected BaseService(IMapper mapper, IUnitOfWork unitOfWork)
-        //{
-        //    _mapper = mapper;
-        //    _unitOfWork = unitOfWork;
-        //    __repository = _unitOfWork.GetRepositoryByEntity<TEntity>();
-        //    __userRepository = _unitOfWork.UserRepository;
-        //}
+        protected BaseService(IMapper mapper, IUnitOfWork unitOfWork)
+        {
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
+            __repository = _unitOfWork.GetRepositoryByEntity<TEntity>();
+            __userRepository = _unitOfWork.UserRepository;
+        }
 
-        //protected BaseService(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : this(mapper, unitOfWork)
-        //{
-        //    _httpContextAccessor = httpContextAccessor;
-        //}
+        protected BaseService(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : this(mapper, unitOfWork)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
 
         //public async Task<TEntity> SetBaseEntityToCreateFunc(TEntity entity)
         //{
@@ -121,8 +122,8 @@ namespace Wecare.Services.Base
         //{
         //    var handler = new JwtSecurityTokenHandler();
         //    var jwtToken = handler.ReadJwtToken(token);
-        //    var emailClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == "email"); // Hoặc bất kỳ claim nào chứa Email
-        //    var usernameClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == "sub"); // Hoặc bất kỳ claim nào chứa Email
+        //    var emailClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == "email"); // hoac bat ki claim nao chua email
+        //    var usernameClaim = jwtToken.Claims.FirstOrDefault(claim => claim.Type == "sub"); // hoac bat ki claim nao chua email
         //    return (emailClaim?.Value, usernameClaim?.Value);
         //}
     }
