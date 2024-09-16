@@ -387,6 +387,10 @@ namespace Wecare.Repositories.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -60,6 +60,7 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Email).IsRequired();
                 e.Property(x => x.Password);
                 e.Property(x => x.FullName);
+                e.Property(x => x.Phone);
                 e.Property(x => x.Age);
                 e.Property(x => x.Gender).HasConversion<string>();
                 e.Property(x => x.ImageUrl);

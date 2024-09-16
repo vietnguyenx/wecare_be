@@ -12,7 +12,7 @@ using WeCare.Repositories.Data;
 namespace Wecare.Repositories.Migrations
 {
     [DbContext(typeof(WeCareDbContext))]
-    [Migration("20240916024847_Init")]
+    [Migration("20240916045554_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -387,6 +387,10 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -64,6 +64,7 @@ namespace Wecare.Repositories.Migrations
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
