@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Wecare.Repositories
-build_property.ProjectDir = D:\LearningMaterials\College\Wecare\Wecare\Wecare.Repositories\
+build_property.ProjectDir = D:\LearningMaterials\College\Wecare\wecare_be\Wecare.Repositories\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

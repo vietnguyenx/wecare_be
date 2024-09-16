@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KGss5XOmoBPgy1zKPv8rXZjoauKRqFJv7guOv2ilINKtH6l1w42jZwGIKJYFSy8ZVmspc0K9/alzCTXK4TyGIg==",
+  "dgSpecHash": "TIqclAJeTxgLCVHHwMtNCvVPoSevWpsk7d/1smygnv2h0Pwzx6Aii2/pfARsigRKesMl6ublUAsNjuLPBTVCzQ==",
   "success": true,
-  "projectFilePath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Services\\Wecare.Services.csproj",
+  "projectFilePath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Services\\Wecare.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vietnguyen\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\vietnguyen\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

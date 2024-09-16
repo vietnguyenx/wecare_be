@@ -4856,11 +4856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Repositories\\Wecare.Repositories.csproj",
+      "projectUniqueName": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Repositories\\Wecare.Repositories.csproj",
       "projectName": "Wecare.Repositories",
-      "projectPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Repositories\\Wecare.Repositories.csproj",
+      "projectPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Repositories\\Wecare.Repositories.csproj",
       "packagesPath": "C:\\Users\\vietnguyen\\.nuget\\packages\\",
-      "outputPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Repositories\\obj\\",
+      "outputPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vietnguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
