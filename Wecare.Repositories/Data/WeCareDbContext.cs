@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Wecare.Repositories.Data;
 using Wecare.Repositories.Data.Entities;
 
 namespace WeCare.Repositories.Data
 {
-    public class WeCareDbContext : DbContext
+    public class WeCareDbContext : BaseDbContext
     {
         public WeCareDbContext(DbContextOptions<WeCareDbContext> options) : base(options)
         {

@@ -8662,11 +8662,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.API\\Wecare.API.csproj",
+      "projectUniqueName": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.API\\Wecare.API.csproj",
       "projectName": "Wecare.API",
-      "projectPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.API\\Wecare.API.csproj",
+      "projectPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.API\\Wecare.API.csproj",
       "packagesPath": "C:\\Users\\vietnguyen\\.nuget\\packages\\",
-      "outputPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.API\\obj\\",
+      "outputPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vietnguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8683,11 +8683,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Repositories\\Wecare.Repositories.csproj": {
-              "projectPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Repositories\\Wecare.Repositories.csproj"
+            "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Repositories\\Wecare.Repositories.csproj": {
+              "projectPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Repositories\\Wecare.Repositories.csproj"
             },
-            "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Services\\Wecare.Services.csproj": {
-              "projectPath": "D:\\LearningMaterials\\College\\Wecare\\Wecare\\Wecare.Services\\Wecare.Services.csproj"
+            "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Services\\Wecare.Services.csproj": {
+              "projectPath": "D:\\LearningMaterials\\College\\Wecare\\wecare_be\\Wecare.Services\\Wecare.Services.csproj"
             }
           }
         }
