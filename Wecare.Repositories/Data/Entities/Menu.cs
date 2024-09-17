@@ -16,6 +16,8 @@ namespace Wecare.Repositories.Data.Entities
         public string Description { get; set; }
         public SuitableFor SuitableFor { get; set; }
         public string ImageUrl { get; set; }
+        public decimal TotalPrice { get; set; }
+        public bool? IsActive { get; set; }
 
         public Dietitian Dietitian { get; set; }
         public virtual ICollection<MenuDish> MenuDishes { get; set; }

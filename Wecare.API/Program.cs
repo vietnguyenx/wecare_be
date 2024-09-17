@@ -71,7 +71,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //builder.Services.AddScoped<IDietitianService, DietitianService>();
 //builder.Services.AddScoped<IDietPlanService, DietPlanService>();
-//builder.Services.AddScoped<IDishService, DishService>();
+builder.Services.AddScoped<IDishService, DishService>();
 //builder.Services.AddScoped<IHealthMetricService, HealthMetricService>(); 
 //builder.Services.AddScoped<IMenuDishService, MenuDishService>();
 builder.Services.AddScoped<IMenuService, MenuService>();

@@ -9,6 +9,8 @@ namespace Wecare.API.RequestModel
         public string Description { get; set; }
         public SuitableFor SuitableFor { get; set; }
         public string ImageUrl { get; set; }
+        public decimal TotalPrice { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }
