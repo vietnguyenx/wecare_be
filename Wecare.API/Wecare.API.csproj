@@ -27,7 +27,6 @@
     <Folder Include="Tools\" />
     <Folder Include="SearchModel\" />
     <Folder Include="ResponseModel\" />
-    <Folder Include="RequestModel\" />
   </ItemGroup>
 
   <ItemGroup>
