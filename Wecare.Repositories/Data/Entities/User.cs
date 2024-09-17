@@ -12,19 +12,18 @@ namespace Wecare.Repositories.Data.Entities
     [Table("User")]
     public class User : BaseEntity
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
         public string FullName { get; set; }
-        public int Age { get; set; }
-        public DateTime DOB { get; set; }
-        public Gender Gender { get; set; }
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
+        public string Email { get; set; }
+        public DateTime? DOB { get; set; }
+        public string? Address { get; set; }
+        public Gender? Gender { get; set; }
+        public string? Phone { get; set; }    
 
-        public virtual ICollection<HealthMetric> HealthMetrics { get; set; }
-        public virtual ICollection<UserDietPlan> UserDietPlans { get; set; }
-        public virtual ICollection<Notification> Notifications { get; set; }
+        public virtual ICollection<HealthMetric>? HealthMetrics { get; set; }
+        public virtual ICollection<UserDietPlan>? UserDietPlans { get; set; }
+        public virtual ICollection<Notification>? Notifications { get; set; }
     }
 }

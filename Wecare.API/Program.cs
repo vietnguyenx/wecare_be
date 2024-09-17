@@ -77,7 +77,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IMenuService, MenuService>();
 //builder.Services.AddScoped<INotificationService, NotificationService>();
 //builder.Services.AddScoped<IUserDietPlanService, UserDietPlanService>();
-//builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddHttpContextAccessor();
 

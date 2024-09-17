@@ -62,7 +62,6 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Address);
                 e.Property(x => x.FullName);
                 e.Property(x => x.Phone);
-                e.Property(x => x.Age);
                 e.Property(x => x.DOB);
                 e.Property(x => x.Gender).HasConversion<string>();
                 e.Property(x => x.ImageUrl);
