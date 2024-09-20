@@ -15,8 +15,6 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
         Task<(List<Dish>, long)> Search(Dish Dish, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<(List<Dish>, long)> GetAllPaginationByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<Dish?> GetById(Guid id);
-        Task<List<Dish>> GetAllByMenuId(Guid menuId);
-        Task<(List<Dish>, long)> GetAllPaginationByMenuId(Guid menuId, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<List<Dish>> GetAllExceptListId(List<Guid> guids);
     }
 }

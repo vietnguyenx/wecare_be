@@ -29,22 +29,6 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             return await queryable.Include(m => m.MenuDishes).ToListAsync();
         }
 
-        public async Task<(List<Dish>, long)> GetAllPaginationByMenuId(Guid menuId, int pageNumber, int pageSize, string sortField, int sortOrder)
-        {
-            var queryable = GetQueryable();
-            queryable = queryable.Where(m => m.MenuId == menuId);
-            queryable = queryable.Where(m => !m.IsDeleted);
-            queryable = base.ApplySort(queryable, sortField, sortOrder);
-
-            var totalOrigin = queryable.Count();
-            //loc theo trang
-            queryable = GetQueryablePagination(queryable, pageNumber, pageSize);
-
-            var dishes = await queryable.Include(m => m.MenuDishes).ToListAsync();
-
-            return (dishes, totalOrigin);
-        }
-
         public async Task<(List<Dish>, long)> Search(Dish Dish, int pageNumber, int pageSize, string sortField, int sortOrder)
         {
             var queryable = GetQueryable();
@@ -118,15 +102,6 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             var user = await query.Include(m => m.MenuDishes).SingleOrDefaultAsync();
 
             return user;
-        }
-
-        public async new Task<List<Dish>> GetAllByMenuId(Guid menuId)
-        {
-            var query = GetQueryable(m => m.MenuId == menuId);
-            query = query.Where(m => !m.IsDeleted);
-            var menus = await query.Include(m => m.MenuDishes).ToListAsync();
-
-            return menus;
         }
 
         public async Task<(List<Dish>, long)> GetAllPaginationByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder)

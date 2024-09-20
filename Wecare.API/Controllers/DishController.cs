@@ -68,30 +68,6 @@ namespace Wecare.API.Controllers
             };
         }
 
-        [HttpGet("get-all-by-menu-id/{menuId}")]
-        public async Task<IActionResult> GetAllByMenuId(Guid menuId)
-        {
-            try
-            {
-                if (menuId == Guid.Empty)
-                {
-                    return BadRequest("Id is empty");
-                }
-                var dishModels = await _service.GetAllByMenuId(menuId);
-
-                return dishModels switch
-                {
-                    null => Ok(new ItemListResponse<DishModel>(ConstantMessage.Fail, null)),
-                    not null => Ok(new ItemListResponse<DishModel>(ConstantMessage.Success, dishModels))
-                };
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-            };
-        }
-
         [HttpPost("add")]
         public async Task<IActionResult> AddDish(DishRequest dish)
         {
@@ -199,32 +175,13 @@ namespace Wecare.API.Controllers
             };
         }
 
-        [HttpPost("get-all-pagination-by-menu-id")]
-        public async Task<IActionResult> GetAllPaginationByMenuId(Guid menuId, [FromBody] PaginatedRequest paginatedRequest)
-        {
-            try
-            {
-                var dishes = await _service.GetAllPaginationByMenuId(menuId, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
-
-                return dishes.Item1 switch
-                {
-                    null => Ok(new PaginatedListResponse<DishModel>(ConstantMessage.NotFound, dishes.Item1, dishes.Item2, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField)),
-                    not null => Ok(new PaginatedListResponse<DishModel>(ConstantMessage.Success, dishes.Item1, dishes.Item2, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField))
-                };
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-            };
-        }
 
         [HttpPost("get-all-pagination-by-list-id")]
         public async Task<IActionResult> GetAllDishes(PaginatedRequest<List<Guid>> paginatedRequest)
         {
             try
             {
-                var dishes = await _service.GetAllPaginatiomByListId(paginatedRequest.Result, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
+                var dishes = await _service.GetAllPaginationByListId(paginatedRequest.Result, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
 
                 return dishes.Item1 switch
                 {

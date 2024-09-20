@@ -151,7 +151,6 @@ namespace WeCare.Repositories.Data
                 e.ToTable("Dish");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.MenuId);
                 e.Property(x => x.DishName);
                 e.Property(x => x.Ingredients);
                 e.Property(x => x.Calories);

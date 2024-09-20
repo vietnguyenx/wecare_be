@@ -17,11 +17,9 @@ namespace Wecare.Services.Services.Interface
         public Task<List<DishModel>?> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);
 
         public Task<(List<DishModel>?, long)> Search(DishModel dishModel, int pageNumber, int pageSize, string sortField, int sortOrder);
-        public Task<(List<DishModel>?, long)> GetAllPaginatiomByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder);
+        public Task<(List<DishModel>?, long)> GetAllPaginationByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder);
 
         public Task<long> GetTotalCount();
-        Task<List<DishModel>> GetAllByMenuId(Guid menuId);
-        Task<(List<DishModel>?, long)> GetAllPaginationByMenuId(Guid menuId, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<List<DishModel>?> GetAllExceptListId(List<Guid> guids);
     }
 }

@@ -82,18 +82,6 @@ namespace Wecare.Services.Services.Services
             return _mapper.Map<DishModel>(Dishes);
         }
 
-        public async Task<List<DishModel>> GetAllByMenuId(Guid menuId)
-        {
-            var dishes = await _repository.GetAllByMenuId(menuId);
-
-            if (!dishes.Any())
-            {
-                return null;
-            }
-
-            return _mapper.Map<List<DishModel>>(dishes);
-        }
-
         public async Task<List<DishModel>?> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder)
         {
             var dishes = await _repository.GetAllPagination(pageNumber, pageSize, sortField, sortOrder);
@@ -104,19 +92,6 @@ namespace Wecare.Services.Services.Services
             }
 
             return _mapper.Map<List<DishModel>>(dishes);
-        }
-
-        public async Task<(List<DishModel>?, long)> GetAllPaginationByMenuId(Guid menuId, int pageNumber, int pageSize, string sortField, int sortOrder)
-        {
-            var dishesWithTotalOrigin = await _repository.GetAllPaginationByMenuId(menuId, pageNumber, pageSize, sortField, sortOrder);
-
-            if (!dishesWithTotalOrigin.Item1.Any())
-            {
-                return (null, dishesWithTotalOrigin.Item2);
-            }
-            var dishModels = _mapper.Map<List<DishModel>>(dishesWithTotalOrigin.Item1);
-
-            return (dishModels, dishesWithTotalOrigin.Item2);
         }
 
         public async Task<(List<DishModel>?, long)> Search(DishModel dishModel, int pageNumber, int pageSize, string sortField, int sortOrder)
@@ -133,7 +108,7 @@ namespace Wecare.Services.Services.Services
             return (dishModels, dishesWithTotalOrigin.Item2);
         }
 
-        public async Task<(List<DishModel>?, long)> GetAllPaginatiomByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder)
+        public async Task<(List<DishModel>?, long)> GetAllPaginationByListId(List<Guid> guids, int pageNumber, int pageSize, string sortField, int sortOrder)
         {
             var dishesWithTotalOrigin = await _repository.GetAllPaginationByListId(guids, pageNumber, pageSize, sortField, sortOrder);
 
