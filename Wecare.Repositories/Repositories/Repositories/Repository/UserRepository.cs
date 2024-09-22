@@ -34,8 +34,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             }
 
             var result = await queryable
-                .Include(m => m.HealthMetrics)
-                .Include(m => m.UserDietPlans).SingleOrDefaultAsync();
+                .Include(m => m.HealthMetric)
+                .Include(m => m.DietPlans).SingleOrDefaultAsync();
 
             return result;
         }
@@ -52,8 +52,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             }
 
             var result = await queryable
-                .Include(m => m.HealthMetrics)
-                .Include(m => m.UserDietPlans).SingleOrDefaultAsync();
+                .Include(m => m.HealthMetric)
+                .Include(m => m.DietPlans).SingleOrDefaultAsync();
 
             return result;
         }
@@ -67,14 +67,14 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             queryable = GetQueryablePagination(queryable, pageNumber, pageSize);
 
             return await queryable
-                .Include(m => m.HealthMetrics)
-                .Include(m => m.UserDietPlans).ToListAsync();
+                .Include(m => m.HealthMetric)
+                .Include(m => m.DietPlans).ToListAsync();
         }
 
         public async Task<User> GetById(Guid id)
         {
             var query = GetQueryable(m => m.Id == id);
-            var user = await query.Include(m => m.HealthMetrics).Include(m => m.UserDietPlans).SingleOrDefaultAsync();
+            var user = await query.Include(m => m.HealthMetric).Include(m => m.DietPlans).SingleOrDefaultAsync();
 
             return user;
         }
@@ -130,8 +130,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             queryable = GetQueryablePagination(queryable, pageNumber, pageSize);
 
             var users = await queryable
-                .Include(m => m.HealthMetrics)
-                .Include(m => m.UserDietPlans).ToListAsync();
+                .Include(m => m.HealthMetric)
+                .Include(m => m.DietPlans).ToListAsync();
 
             return (users, totalOrigin);
         }

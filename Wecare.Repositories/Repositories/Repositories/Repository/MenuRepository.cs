@@ -31,7 +31,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             return await queryable
                 .Include(m => m.Dietitian)
                 .Include(m => m.MenuDishes)
-                .Include(m => m.DietPlans)
+                .Include(m => m.MenuDietPlans)
                 .ToListAsync();
         }
 
@@ -40,7 +40,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             var queryable = await GetQueryable(x => x.DietitianId == id)
                 .Include(m => m.Dietitian)
                 .Include(m => m.MenuDishes)
-                .Include(m => m.DietPlans).ToListAsync();
+                .Include(m => m.MenuDietPlans).ToListAsync();
 
             return queryable;
         }
@@ -71,7 +71,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             var pacakges = await queryable
                 .Include(m => m.Dietitian)
                 .Include(m => m.MenuDishes)
-                .Include(m => m.DietPlans)
+                .Include(m => m.MenuDietPlans)
                 .ToListAsync();
 
             return (pacakges, totalOrigin);
@@ -83,7 +83,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             var user = await query
                 .Include(m => m.Dietitian)
                 .Include(m => m.MenuDishes)
-                .Include(m => m.DietPlans)
+                .Include(m => m.MenuDietPlans)
                 .SingleOrDefaultAsync();
 
             return user;

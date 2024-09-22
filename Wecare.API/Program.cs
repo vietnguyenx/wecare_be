@@ -66,7 +66,7 @@ builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<IHealthMetricRepository, HealthMetricRepository>();
 builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
-builder.Services.AddScoped<IUserDietPlanRepository, UserDietPlanRepository>();
+builder.Services.AddScoped<IMenuDietPlanRepository, MenuDietPlanRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IDietitianService, DietitianService>();

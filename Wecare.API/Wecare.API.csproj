@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Uploads\" />
-    <Folder Include="Tools\" />
     <Folder Include="SearchModel\" />
     <Folder Include="ResponseModel\" />
   </ItemGroup>

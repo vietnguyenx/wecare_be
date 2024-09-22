@@ -8,12 +8,12 @@ namespace Wecare.API.Controllers
     [Route("api/userplan")]
     [ApiController]
     [Authorize]
-    public class UserDietPlanController : ControllerBase
+    public class MenuDietPlanController : ControllerBase
     {
-        private readonly IUserDietPlanService _service;
+        private readonly IMenuDietPlanService _service;
         private readonly IMapper _mapper;
 
-        public UserDietPlanController(IUserDietPlanService service, IMapper mapper)
+        public MenuDietPlanController(IMenuDietPlanService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

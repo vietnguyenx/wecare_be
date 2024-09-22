@@ -13,6 +13,8 @@ namespace Wecare.API.RequestModel
         public string? Address { get; set; }
         public Gender? Gender { get; set; }
         public string? Phone { get; set; }
-        
+        public Guid? HealthMetricId { get; set; }
+        public Guid? DietPlanId { get; set; }
+
     }
 }

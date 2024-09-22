@@ -10,11 +10,11 @@ using Wecare.Repositories.Repositories.Repositories.Interface;
 
 namespace Wecare.Repositories.Repositories.Repositories.Repository
 {
-    public class UserDietPlanRepository : BaseRepository<UserDietPlan>, IUserDietPlanRepository
+    public class MenuDietPlanRepository : BaseRepository<MenuDietPlan>, IMenuDietPlanRepository
     {
         private readonly WeCareDbContext _context;
 
-        public UserDietPlanRepository(WeCareDbContext context) : base(context)
+        public MenuDietPlanRepository(WeCareDbContext context) : base(context)
         {
             _context = context;
         }

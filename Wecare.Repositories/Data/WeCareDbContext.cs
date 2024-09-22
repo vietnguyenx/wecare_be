@@ -46,7 +46,7 @@ namespace WeCare.Repositories.Data
         public virtual DbSet<DietPlan> DietPlans { get; set; } = null!;
         public virtual DbSet<MenuDish> MenuDishes { get; set; } = null!;
         public virtual DbSet<Notification> Notifications { get; set; } = null!;
-        public virtual DbSet<UserDietPlan> UserDietPlans { get; set; } = null!;
+        public virtual DbSet<MenuDietPlan> MenuDietPlans { get; set; } = null!;
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -56,15 +56,29 @@ namespace WeCare.Repositories.Data
                 e.ToTable("User");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.Username).IsRequired();
+                e.Property(x => x.Username);
                 e.Property(x => x.Email).IsRequired();
                 e.Property(x => x.Password);
                 e.Property(x => x.Address);
-                e.Property(x => x.FullName);
+                e.Property(x => x.FullName).IsRequired();
                 e.Property(x => x.Phone);
                 e.Property(x => x.DOB);
                 e.Property(x => x.Gender).HasConversion<string>();
                 e.Property(x => x.ImageUrl);
+
+                // 1-1
+                e.HasOne(x => x.HealthMetric)
+                    .WithOne(x => x.User)
+                    .HasForeignKey<HealthMetric>(x => x.UserId); 
+
+                // 1-n
+                e.HasMany(x => x.DietPlans)
+                    .WithOne(x => x.User)
+                    .HasForeignKey(x => x.UserId);
+
+                e.HasMany(x => x.Notifications)
+                    .WithOne(x => x.User)
+                    .HasForeignKey(x => x.UserId);
 
                 e.Property(x => x.CreatedBy);
                 e.Property(x => x.CreatedDate);
@@ -78,7 +92,6 @@ namespace WeCare.Repositories.Data
                 e.ToTable("HealthMetric");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.UserId);
                 e.Property(x => x.DateRecorded);
                 e.Property(x => x.BloodSugar);
                 e.Property(x => x.UricAcid);
@@ -91,11 +104,6 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.LastUpdatedBy);
                 e.Property(x => x.LastUpdatedDate);
                 e.Property(x => x.IsDeleted);
-
-                e.HasOne(x => x.User)
-                    .WithMany(x => x.HealthMetrics)
-                    .HasForeignKey(x => x.UserId)
-                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Dietitian>(e =>
@@ -125,11 +133,12 @@ namespace WeCare.Repositories.Data
                 e.ToTable("Menu");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.DietitianId);
                 e.Property(x => x.MenuName);
                 e.Property(x => x.Description);
                 e.Property(x => x.SuitableFor).HasConversion<string>();
                 e.Property(x => x.ImageUrl);
+                e.Property(x => x.Status).HasConversion<string>();
+                e.Property(x => x.IsActive);
 
                 e.Property(x => x.CreatedBy);
                 e.Property(x => x.CreatedDate);
@@ -141,7 +150,7 @@ namespace WeCare.Repositories.Data
                     .WithOne(x => x.Menu)
                     .HasForeignKey(x => x.MenuId);
 
-                e.HasMany(x => x.DietPlans)
+                e.HasMany(x => x.MenuDietPlans)
                     .WithOne(x => x.Menu)
                     .HasForeignKey(x => x.MenuId);
             });
@@ -173,13 +182,18 @@ namespace WeCare.Repositories.Data
             modelBuilder.Entity<MenuDish>(e =>
             {
                 e.ToTable("MenuDish");
-                e.HasKey(x => new { x.MenuId, x.DishId });
+                e.HasKey(md => md.Id);
+                e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWId()");
+
                 e.HasOne(x => x.Menu)
                     .WithMany(x => x.MenuDishes)
-                    .HasForeignKey(x => x.MenuId);
+                    .HasForeignKey(x => x.MenuId)
+                    .OnDelete(DeleteBehavior.Restrict); // NO ACTION on delete;
+
                 e.HasOne(x => x.Dish)
                     .WithMany(x => x.MenuDishes)
-                    .HasForeignKey(x => x.DishId);
+                    .HasForeignKey(x => x.DishId)
+                    .OnDelete(DeleteBehavior.Restrict); // NO ACTION on delete;
 
                 e.Property(x => x.CreatedBy);
                 e.Property(x => x.CreatedDate);
@@ -193,7 +207,6 @@ namespace WeCare.Repositories.Data
                 e.ToTable("DietPlan");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.MenuId);
                 e.Property(x => x.DateAssigned);
                 e.Property(x => x.Period);
                 e.Property(x => x.Status).HasConversion<string>();
@@ -204,21 +217,25 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.LastUpdatedDate);
                 e.Property(x => x.IsDeleted);
 
-                e.HasMany(x => x.UserDietPlans)
+                e.HasMany(x => x.MenuDietPlans)
                     .WithOne(x => x.DietPlan)
                     .HasForeignKey(x => x.DietPlanId);
             });
 
-            modelBuilder.Entity<UserDietPlan>(e =>
+            modelBuilder.Entity<MenuDietPlan>(e =>
             {
-                e.ToTable("UserDietPlan");
-                e.HasKey(x => new { x.UserId, x.DietPlanId });
-                e.HasOne(x => x.User)
-                    .WithMany(x => x.UserDietPlans)
-                    .HasForeignKey(x => x.UserId);
+                e.HasKey(md => md.Id);
+                e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWId()");
+
+                e.HasOne(x => x.Menu)
+                    .WithMany(x => x.MenuDietPlans)
+                    .HasForeignKey(x => x.MenuId)
+                    .OnDelete(DeleteBehavior.Restrict); // NO ACTION on delete;
+
                 e.HasOne(x => x.DietPlan)
-                    .WithMany(x => x.UserDietPlans)
-                    .HasForeignKey(x => x.DietPlanId);
+                    .WithMany(x => x.MenuDietPlans)
+                    .HasForeignKey(x => x.DietPlanId)
+                    .OnDelete(DeleteBehavior.Restrict); // NO ACTION on delete;
 
                 e.Property(x => x.CreatedBy);
                 e.Property(x => x.CreatedDate);
@@ -232,7 +249,6 @@ namespace WeCare.Repositories.Data
                 e.ToTable("Notification");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.UserId);
                 e.Property(x => x.Title);
                 e.Property(x => x.Message);
                 e.Property(x => x.IsRead);

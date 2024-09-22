@@ -14,6 +14,6 @@ namespace Wecare.Repositories.Data.Entities
         public string Title { get; set; }
         public string Message { get; set; }
         public bool IsRead { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

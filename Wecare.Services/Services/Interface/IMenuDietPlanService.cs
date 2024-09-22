@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wecare.Services.Services.Services
+namespace Wecare.Services.Services.Interface
 {
-    public class UserDietPlanService
+    public interface IMenuDietPlanService
     {
     }
 }

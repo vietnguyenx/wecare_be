@@ -11,11 +11,11 @@ namespace Wecare.Repositories.Data.Entities
     [Table("DietPlan")]
     public class DietPlan : BaseEntity
     {
-        public Guid MenuId { get; set; }
-        public Menu Menu { get; set; }
+        public Guid UserId { get; set; }
         public DateOnly DateAssigned { get; set; }
         public String Period { get; set; }
         public Status Status { get; set; }
-        public virtual ICollection<UserDietPlan> UserDietPlans { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<MenuDietPlan> MenuDietPlans { get; set; }
     }
 }

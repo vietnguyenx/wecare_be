@@ -18,7 +18,7 @@ namespace Wecare.Repositories.Repositories.UnitOfWork.Repository
 
         public IDietitianRepository DietitianRepository => GetRepository<IDietitianRepository>();
 
-        public IDietPlanRepository DietplanRepository => GetRepository<IDietPlanRepository>();
+        public IDietPlanRepository DietPlanRepository => GetRepository<IDietPlanRepository>();
 
         public IDishRepository DishRepository => GetRepository<IDishRepository>();
 
@@ -30,7 +30,7 @@ namespace Wecare.Repositories.Repositories.UnitOfWork.Repository
 
         public INotificationRepository NotificationRepository => GetRepository<INotificationRepository>();
 
-        public IUserDietPlanRepository UserDietPlanRepository => GetRepository<IUserDietPlanRepository>();
+        public IMenuDietPlanRepository MenuDietPlanRepository => GetRepository<IMenuDietPlanRepository>();
 
         public IUserRepository UserRepository => GetRepository<IUserRepository>();
     }

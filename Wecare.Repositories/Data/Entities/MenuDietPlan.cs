@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Wecare.Repositories.Data.Entities
 {
-    [Table("UserDietPlan")]
-    public class UserDietPlan : BaseEntity
+    [Table("MenuDietPlan")]
+    public class MenuDietPlan : BaseEntity
     {
-        public Guid UserId { get; set; }
+        public Guid MenuId { get; set; }
         public Guid DietPlanId { get; set; }
 
-        public User User { get; set; }
-        public DietPlan DietPlan { get; set; }
+        public virtual Menu Menu { get; set; }
+        public virtual DietPlan DietPlan { get; set; }
     }
 }
