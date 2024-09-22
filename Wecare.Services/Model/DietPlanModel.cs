@@ -9,12 +9,10 @@ namespace Wecare.Services.Model
 {
     public class DietPlanModel : BaseModel
     {
-        public Guid MenuId { get; set; }
-        public MenuModel Menu { get; set; }
         public DateOnly DateAssigned { get; set; }
         public String Period { get; set; }
         public Status Status { get; set; }
 
-        public virtual IList<UserDietPlanModel> UserDietPlans { get; set; }
+        public virtual IList<MenuDietPlanModel> MenuDietPlans { get; set; }
     }
 }

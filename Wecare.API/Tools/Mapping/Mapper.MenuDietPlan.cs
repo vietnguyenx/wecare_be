@@ -7,10 +7,10 @@ namespace Wecare.API.Tools.Mapping
 {
     public partial class Mapper : Profile
     {
-        public void UserDietPlanMapping()
+        public void MenuDietPlanMapping()
         {
-            CreateMap<UserDietPlan, UserDietPlanModel>().ReverseMap();
-            CreateMap<UserDietPlanModel, UserDietPlanRequest>().ReverseMap();
+            CreateMap<MenuDietPlan, MenuDietPlanModel>().ReverseMap();
+            CreateMap<MenuDietPlanModel, MenuDietPlanRequest>().ReverseMap();
         }
     }
 }

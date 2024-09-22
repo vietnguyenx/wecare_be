@@ -11,16 +11,16 @@ namespace Wecare.Repositories.Data.Entities
     [Table("Menu")]
     public class Menu : BaseEntity
     {
-        public Guid DietitianId { get; set; }
-        public string MenuName { get; set; }
-        public string Description { get; set; }
-        public SuitableFor SuitableFor { get; set; }
-        public string ImageUrl { get; set; }
-        public decimal TotalPrice { get; set; }
-        public bool? IsActive { get; set; }
+        public Guid? DietitianId { get; set; }
+        public string? MenuName { get; set; }
+        public string? Description { get; set; }
+        public SuitableFor? SuitableFor { get; set; }
+        public string? ImageUrl { get; set; }
+        public Status? Status { get; set; }
+        public bool IsActive { get; set; }
 
-        public Dietitian Dietitian { get; set; }
-        public virtual ICollection<MenuDish> MenuDishes { get; set; }
-        public virtual ICollection<DietPlan> DietPlans { get; set; }
+        public virtual Dietitian? Dietitian { get; set; }
+        public virtual ICollection<MenuDish>? MenuDishes { get; set; }
+        public virtual ICollection<MenuDietPlan>? MenuDietPlans { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using Wecare.Repositories.Repositories.Base;
 
 namespace Wecare.Repositories.Repositories.Repositories.Interface
 {
-    public interface IUserDietPlanRepository : IBaseRepository<UserDietPlan>
+    public interface IMenuDietPlanRepository : IBaseRepository<MenuDietPlan>
     {
     }
 }

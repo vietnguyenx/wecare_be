@@ -12,7 +12,7 @@
             MenuDishMapping();
             NotificationMapping();
             UserMapping();
-            UserDietPlanMapping();
+            MenuDietPlanMapping();
         }
     }
 }

@@ -10,13 +10,13 @@ namespace Wecare.Repositories.Repositories.UnitOfWork.Interface
     public interface IUnitOfWork : IBaseUnitOfWork
     {
         IDietitianRepository DietitianRepository { get; }
-        IDietPlanRepository DietplanRepository { get; }
+        IDietPlanRepository DietPlanRepository { get; }
         IDishRepository DishRepository { get; }
         IHealthMetricRepository HealthMetricRepository { get; }
         IMenuDishRepository MenuDishRepository { get; }
         IMenuRepository MenuRepository { get; }
         INotificationRepository NotificationRepository { get; }
-        IUserDietPlanRepository UserDietPlanRepository { get; }
+        IMenuDietPlanRepository MenuDietPlanRepository { get; }
         IUserRepository UserRepository { get; }
     }
 }

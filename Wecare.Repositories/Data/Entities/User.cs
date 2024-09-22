@@ -20,10 +20,13 @@ namespace Wecare.Repositories.Data.Entities
         public DateTime? DOB { get; set; }
         public string? Address { get; set; }
         public Gender? Gender { get; set; }
-        public string? Phone { get; set; }    
+        public string? Phone { get; set; }
 
-        public virtual ICollection<HealthMetric>? HealthMetrics { get; set; }
-        public virtual ICollection<UserDietPlan>? UserDietPlans { get; set; }
+        public Guid? HealthMetricId { get; set; }
+
+        public virtual HealthMetric? HealthMetric { get; set; }  
+        public virtual ICollection<DietPlan>? DietPlans { get; set; }
         public virtual ICollection<Notification>? Notifications { get; set; }
     }
 }
+

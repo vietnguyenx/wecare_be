@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Wecare.Services.Model
 {
-    public class UserDietPlanModel : BaseModel
+    public class MenuDietPlanModel : BaseModel
     {
-        public Guid UserId { get; set; }
+        public Guid MenuId { get; set; }
         public Guid DietPlanId { get; set; }
 
-        public UserModel User { get; set; }
+        public MenuModel Menu { get; set; }
         public DietPlanModel DietPlan { get; set; }
     }
 }

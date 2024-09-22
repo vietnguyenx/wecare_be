@@ -1,8 +1,8 @@
 ﻿namespace Wecare.API.RequestModel
 {
-    public class UserDietPlanRequest : BaseRequest
+    public class MenuDietPlanRequest : BaseRequest
     {
-        public Guid UserId { get; set; }
+        public Guid MenuId { get; set; }
         public Guid DietPlanId { get; set; }
     }
 }

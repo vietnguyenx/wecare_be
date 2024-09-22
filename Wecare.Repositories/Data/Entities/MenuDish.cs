@@ -13,7 +13,7 @@ namespace Wecare.Repositories.Data.Entities
         public Guid MenuId { get; set; }
         public Guid DishId { get; set; }
 
-        public Menu Menu { get; set; }
-        public Dish Dish { get; set; }
+        public virtual Menu Menu { get; set; }
+        public virtual Dish Dish { get; set; }
     }
 }
