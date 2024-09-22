@@ -11,7 +11,7 @@ namespace Wecare.API.Controllers
 {
     [Route("api/healthmetric")]
     [ApiController]
-    //[Authorize]
+    //[Authorize] aaaaaaaaaaaaa
     public class HealthMetricController : ControllerBase
     {
         private readonly IHealthMetricService _service;
