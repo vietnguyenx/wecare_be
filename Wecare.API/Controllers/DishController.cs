@@ -13,7 +13,7 @@ namespace Wecare.API.Controllers
 {
     [Route("api/dish")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class DishController : ControllerBase
     {
         private readonly IDishService _service;
