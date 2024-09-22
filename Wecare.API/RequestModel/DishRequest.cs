@@ -2,7 +2,6 @@
 {
     public class DishRequest : BaseRequest
     {
-        public Guid MenuId { get; set; }
         public string DishName { get; set; }
         public string Ingredients { get; set; }
         public int Calories { get; set; }

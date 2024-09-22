@@ -10,10 +10,10 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
 {
     public interface IUserRepository : IBaseRepository<User>
     {
-        Task<User> GetById(Guid id);
-        Task<User> GetUserByEmail(string email);
-        Task<User> FindUsernameOrEmail(string username, string email);
+        Task<User> FindUsernameOrEmail(User user);
         Task<List<User>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);
-        Task<(List<User>, long)> Search(User searchCriteria, int pageNumber, int pageSize, string sortField, int sortOrder);
+        Task<User> GetById(Guid id);
+        Task<User> GetUserByEmail(User user);
+        Task<(List<User>, long)> Search(User user, int pageNumber, int pageSize, string sortField, int sortOrder);
     }
 }

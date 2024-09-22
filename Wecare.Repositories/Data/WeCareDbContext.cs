@@ -62,7 +62,6 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Address);
                 e.Property(x => x.FullName);
                 e.Property(x => x.Phone);
-                e.Property(x => x.Age);
                 e.Property(x => x.DOB);
                 e.Property(x => x.Gender).HasConversion<string>();
                 e.Property(x => x.ImageUrl);
@@ -152,7 +151,6 @@ namespace WeCare.Repositories.Data
                 e.ToTable("Dish");
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
-                e.Property(x => x.MenuId);
                 e.Property(x => x.DishName);
                 e.Property(x => x.Ingredients);
                 e.Property(x => x.Calories);

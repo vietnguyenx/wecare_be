@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
@@ -27,7 +28,6 @@
     <Folder Include="Tools\" />
     <Folder Include="SearchModel\" />
     <Folder Include="ResponseModel\" />
-    <Folder Include="RequestModel\" />
   </ItemGroup>
 
   <ItemGroup>

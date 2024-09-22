@@ -10,7 +10,6 @@ namespace Wecare.Repositories.Data.Entities
     [Table("Dish")]
     public class Dish : BaseEntity
     {
-        public Guid MenuId { get; set; }
         public string DishName { get; set; }
         public string Ingredients { get; set; }
         public int Calories { get; set; }

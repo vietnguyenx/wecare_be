@@ -14,6 +14,8 @@ namespace Wecare.Services.Model
         public string Description { get; set; }
         public SuitableFor SuitableFor { get; set; }
         public string ImageUrl { get; set; }
+        public decimal TotalPrice { get; set; }
+        public bool? IsActive { get; set; }
 
         public DietitianModel Dietitian { get; set; }
         public virtual IList<MenuDishModel> MenuDishes { get; set; }
