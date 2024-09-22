@@ -10,5 +10,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
 {
     public interface IHealthMetricRepository : IBaseRepository<HealthMetric>
     {
+        Task<List<HealthMetric>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);
+        Task<List<HealthMetric>> GetHealthMetricByUserId(Guid id);
+        Task<HealthMetric> GetById(Guid id);
     }
 }
