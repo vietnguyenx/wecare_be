@@ -48,7 +48,7 @@ namespace Wecare.API.Controllers
 
 
         [HttpPost("add")]
-        public async Task<IActionResult> AddCourse(MenuDishRequest dish)
+        public async Task<IActionResult> AddMenuDish(MenuDishRequest dish)
         {
             try
             {
