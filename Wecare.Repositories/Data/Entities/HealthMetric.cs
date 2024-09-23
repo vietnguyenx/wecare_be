@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wecare.Repositories.Data.Entities.Enum;
 
 namespace Wecare.Repositories.Data.Entities
 {
@@ -19,5 +20,19 @@ namespace Wecare.Repositories.Data.Entities
         public string Note { get; set; }
 
         public virtual User User { get; set; }
+
+        public bool IsHealthMetricSuitable(Menu menu)
+        {
+
+            if (menu.SuitableFor == SuitableFor.Diabetes && BloodSugar.HasValue && BloodSugar > 140)
+            {
+                return false; // not suitable for high blood sugar
+            }
+            if (menu.SuitableFor == SuitableFor.Gout && UricAcid.HasValue && UricAcid > 7)
+            {
+                return false; // not suitable for high uric acid
+            }
+            return true;
+        }
     }
 }

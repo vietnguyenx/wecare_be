@@ -57,14 +57,16 @@ namespace WeCare.Repositories.Data
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
                 e.Property(x => x.Username);
-                e.Property(x => x.Email).IsRequired();
                 e.Property(x => x.Password);
-                e.Property(x => x.Address);
                 e.Property(x => x.FullName).IsRequired();
-                e.Property(x => x.Phone);
-                e.Property(x => x.DOB);
-                e.Property(x => x.Gender).HasConversion<string>();
                 e.Property(x => x.ImageUrl);
+                e.Property(x => x.Email).IsRequired();
+                e.Property(x => x.DOB);
+                e.Property(x => x.Address);
+                e.Property(x => x.Gender).HasConversion<string>();
+                e.Property(x => x.Phone);
+                e.Property(x => x.DiseaseType).HasConversion<string>();
+                e.Property(x => x.UserType).HasConversion<string>();
 
                 // 1-1
                 e.HasOne(x => x.HealthMetric)
