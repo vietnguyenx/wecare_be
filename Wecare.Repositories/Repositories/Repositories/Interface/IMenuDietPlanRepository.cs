@@ -10,5 +10,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
 {
     public interface IMenuDietPlanRepository : IBaseRepository<MenuDietPlan>
     {
+        Task<List<MenuDietPlan>> GetAllByMenuId(Guid id);
+
+        Task<MenuDietPlan> GetByDietPlanIdAndMenuId(Guid dietPlanId, Guid menuId);
     }
 }

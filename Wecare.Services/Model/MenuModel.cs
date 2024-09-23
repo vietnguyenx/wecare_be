@@ -18,7 +18,7 @@ namespace Wecare.Services.Model
         public bool? IsActive { get; set; }
 
         public DietitianModel Dietitian { get; set; }
-        public virtual IList<MenuDishModel> MenuDishes { get; set; }
-        public virtual IList<MenuDietPlanModel> MenuDietPlans { get; set; }
+        public IList<MenuDishModel> MenuDishes { get; set; }
+        public IList<MenuDietPlanModel> MenuDietPlans { get; set; }
     }
 }

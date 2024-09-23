@@ -19,14 +19,12 @@ namespace Wecare.Services.Model
         public string? Address { get; set; }
         public Gender? Gender { get; set; }
         public string? Phone { get; set; }
-
-        public Guid? HealthMetricId { get; set; }
-
-        public Guid? DietPlanId { get; set; }
+        public DiseaseType? DiseaseType { get; set; }
+        public UserType? UserType { get; set; }
 
         public HealthMetricModel? HealthMetric { get; set; }
-        public DietPlanModel? DietPlan { get; set; }
+        public IList<DietPlanModel>? DietPlans { get; set; }
 
-        public virtual IList<NotificationModel>? Notifications { get; set; }
+        public IList<NotificationModel>? Notifications { get; set; }
     }
 }

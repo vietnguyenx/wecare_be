@@ -9,9 +9,11 @@ namespace Wecare.Services.Model
 {
     public class DietPlanModel : BaseModel
     {
-        public DateOnly DateAssigned { get; set; }
+        public Guid UserId { get; set; }
+        public DateOnly? DateAssigned { get; set; }
         public String Period { get; set; }
         public Status Status { get; set; }
+        public UserModel User { get; set; }
 
         public virtual IList<MenuDietPlanModel> MenuDietPlans { get; set; }
     }

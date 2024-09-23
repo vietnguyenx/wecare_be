@@ -70,13 +70,13 @@ builder.Services.AddScoped<IMenuDietPlanRepository, MenuDietPlanRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IDietitianService, DietitianService>();
-//builder.Services.AddScoped<IDietPlanService, DietPlanService>();
+builder.Services.AddScoped<IDietPlanService, DietPlanService>();
 builder.Services.AddScoped<IDishService, DishService>();
 builder.Services.AddScoped<IHealthMetricService, HealthMetricService>(); 
 builder.Services.AddScoped<IMenuDishService, MenuDishService>();
 builder.Services.AddScoped<IMenuService, MenuService>();
 //builder.Services.AddScoped<INotificationService, NotificationService>();
-//builder.Services.AddScoped<IUserDietPlanService, UserDietPlanService>();
+builder.Services.AddScoped<IMenuDietPlanService, MenuDietPlanService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddHttpContextAccessor();
