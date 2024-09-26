@@ -118,6 +118,18 @@ namespace Wecare.Services.Services.Services
             return (courseModels, menuWithTotalOrigin.Item2);
         }
 
+        public async Task<List<MenuModel>> GetLatestMenus()
+        {
+            var menus = await _repository.GetLatestMenus();
+
+            if (!menus.Any())
+            {
+                return null;
+            }
+
+            return _mapper.Map<List<MenuModel>>(menus);
+        }
+
         public async Task<List<MenuModel>?> GetMenusByHealthMetrics(List<HealthMetricModel> healthMetrics)
         {
             var healthMetricsEntities = _mapper.Map<List<HealthMetric>>(healthMetrics);

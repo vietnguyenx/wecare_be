@@ -89,6 +89,16 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             return user;
         }
 
+        public async Task<List<Menu>> GetLatestMenus()
+        {
+            return await GetQueryable()
+                .Include(m => m.Dietitian)
+                .Include(m => m.MenuDishes)
+                .OrderByDescending(m => m.CreatedDate) 
+                .Take(5) 
+                .ToListAsync();
+        }
+
         public async Task<List<Menu>> GetMenusByHealthMetrics(List<HealthMetric> healthMetrics)
         {
             var queryable = GetQueryable();

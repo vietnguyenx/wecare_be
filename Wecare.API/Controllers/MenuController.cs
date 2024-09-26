@@ -16,13 +16,13 @@ namespace Wecare.API.Controllers
     //[Authorize]
     public class MenuController : ControllerBase
     {
-        private readonly IMenuService _service;
+        private readonly IMenuService _menuService;
         private readonly IHealthMetricService _healthMetricService;
         private readonly IMapper _mapper;
 
         public MenuController(IMenuService service, IHealthMetricService healthMetricService, IMapper mapper)
         {
-            _service = service;
+            _menuService = service;
             _healthMetricService = healthMetricService;
             _mapper = mapper;
         }
@@ -32,7 +32,7 @@ namespace Wecare.API.Controllers
         {
             try
             {
-                var menus = await _service.GetAll();
+                var menus = await _menuService.GetAll();
 
                 return menus switch
                 {
@@ -55,7 +55,7 @@ namespace Wecare.API.Controllers
                 {
                     return Ok("Id is empty");
                 }
-                var menus = await _service.GetAllMenuByDietitianId(dietitianId);
+                var menus = await _menuService.GetAllMenuByDietitianId(dietitianId);
 
                 return menus switch
                 {
@@ -78,7 +78,7 @@ namespace Wecare.API.Controllers
                 {
                     return BadRequest("Id is empty");
                 }
-                var menuModel = await _service.GetById(id);
+                var menuModel = await _menuService.GetById(id);
 
                 return menuModel switch
                 {
@@ -98,7 +98,7 @@ namespace Wecare.API.Controllers
         {
             try
             {
-                var isMenu = await _service.Add(_mapper.Map<MenuModel>(menu));
+                var isMenu = await _menuService.Add(_mapper.Map<MenuModel>(menu));
 
                 return isMenu switch
                 {
@@ -119,7 +119,7 @@ namespace Wecare.API.Controllers
             {
                 if (id != Guid.Empty)
                 {
-                    var isMenu = await _service.Delete(id);
+                    var isMenu = await _menuService.Delete(id);
 
                     return isMenu switch
                     {
@@ -145,7 +145,7 @@ namespace Wecare.API.Controllers
             {
                 var menuModel = _mapper.Map<MenuModel>(package);
 
-                var isMenu = await _service.Update(menuModel);
+                var isMenu = await _menuService.Update(menuModel);
 
                 return isMenu switch
                 {
@@ -165,7 +165,7 @@ namespace Wecare.API.Controllers
             try
             {
                 var package = _mapper.Map<MenuModel>(paginatedRequest.Result);
-                var packages = await _service.Search(package, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
+                var packages = await _menuService.Search(package, paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
 
                 return packages.Item1 switch
                 {
@@ -185,8 +185,8 @@ namespace Wecare.API.Controllers
         {
             try
             {
-                var menus = await _service.GetAllPagination(paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
-                long totalOrigin = await _service.GetTotalCount();
+                var menus = await _menuService.GetAllPagination(paginatedRequest.PageNumber, paginatedRequest.PageSize, paginatedRequest.SortField, paginatedRequest.SortOrder.Value);
+                long totalOrigin = await _menuService.GetTotalCount();
                 return menus switch
                 {
                     null => Ok(new PaginatedListResponse<MenuModel>(ConstantMessage.NotFound)),
@@ -198,6 +198,19 @@ namespace Wecare.API.Controllers
 
                 return BadRequest(ex.Message);
             };
+        }
+
+        [HttpGet("top5/latest")]
+        public async Task<IActionResult> GetLatestMenus()
+        {
+            var latestMenus = await _menuService.GetLatestMenus();
+
+            if (latestMenus == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(latestMenus);
         }
 
         [HttpGet("get-by-user-health-metrics/{userId}")]
@@ -217,7 +230,7 @@ namespace Wecare.API.Controllers
                     return NotFound("No health metrics found for the user.");
                 }
 
-                var menus = await _service.GetMenusByHealthMetrics(healthMetrics);
+                var menus = await _menuService.GetMenusByHealthMetrics(healthMetrics);
 
                 return Ok(new ItemListResponse<MenuModel>(ConstantMessage.Success, menus));
             }
