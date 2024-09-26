@@ -44,27 +44,23 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
                 {
                     queryable = queryable.Where(m => m.DishName.ToUpper().Contains(Dish.DishName.ToUpper()));
                 }
-
-                if (!string.IsNullOrEmpty(Dish.Ingredients))
-                {
-                    queryable = queryable.Where(m => m.Ingredients.ToLower().Trim().Contains(Dish.Ingredients.ToLower().Trim()));
-                }
-                if (Dish.Calories != null)
-                {
-                    queryable = queryable.Where(m => m.Calories == Dish.Calories);
-                }
-                if (Dish.Carbs != null)
-                {
-                    queryable = queryable.Where(m => m.Carbs == Dish.Carbs);
-                }
-                if (Dish.Protein != null)
-                {
-                    queryable = queryable.Where(m => m.Protein == Dish.Protein);
-                }
-                if (Dish.Fat != null)
-                {
-                    queryable = queryable.Where(m => m.Fat == Dish.Fat);
-                }
+            
+                //if (Dish.Calories != null)
+                //{
+                //    queryable = queryable.Where(m => m.Calories == Dish.Calories);
+                //}
+                //if (Dish.Carbs != null)
+                //{
+                //    queryable = queryable.Where(m => m.Carbs == Dish.Carbs);
+                //}
+                //if (Dish.Protein != null)
+                //{
+                //    queryable = queryable.Where(m => m.Protein == Dish.Protein);
+                //}
+                //if (Dish.Fat != null)
+                //{
+                //    queryable = queryable.Where(m => m.Fat == Dish.Fat);
+                //}
             }
 
             var totalOrigin = queryable.Count();

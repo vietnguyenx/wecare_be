@@ -21,6 +21,7 @@ namespace Wecare.Services.Services.Interface
 
         public Task<long> GetTotalCount();
         Task<List<MenuModel>?> GetAllMenuByDietitianId(Guid idDietitian);
+        Task<List<MenuModel>?> GetMenusByHealthMetrics(List<HealthMetricModel> healthMetrics);
     }
 }
     

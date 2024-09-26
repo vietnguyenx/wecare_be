@@ -17,6 +17,15 @@ namespace Wecare.Services.Model
         public Status? Status { get; set; }
         public bool? IsActive { get; set; }
 
+        public float TotalCalories { get; set; }
+        public float TotalCarbohydrates { get; set; }
+        public float TotalProtein { get; set; }
+        public float TotalFat { get; set; }
+        public float TotalFiber { get; set; }
+        public float TotalSugar { get; set; }
+        public float TotalPurine { get; set; }
+        public float TotalCholesterol { get; set; }
+
         public DietitianModel Dietitian { get; set; }
         public IList<MenuDishModel> MenuDishes { get; set; }
         public IList<MenuDietPlanModel> MenuDietPlans { get; set; }

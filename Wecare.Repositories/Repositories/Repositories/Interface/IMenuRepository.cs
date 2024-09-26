@@ -14,5 +14,6 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
         Task<(List<Menu>, long)> Search(Menu Menu, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<Menu?> GetById(Guid id);
         Task<List<Menu>> GetAllMenuByDietitianId(Guid id);
+        Task<List<Menu>> GetMenusByHealthMetrics(List<HealthMetric> healthMetrics);
     }
 }

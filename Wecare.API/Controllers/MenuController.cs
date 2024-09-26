@@ -7,6 +7,7 @@ using Wecare.API.SearchModel;
 using Wecare.API.Tools.Constant;
 using Wecare.Services.Model;
 using Wecare.Services.Services.Interface;
+using Wecare.Services.Services.Services;
 
 namespace Wecare.API.Controllers
 {
@@ -16,11 +17,13 @@ namespace Wecare.API.Controllers
     public class MenuController : ControllerBase
     {
         private readonly IMenuService _service;
+        private readonly IHealthMetricService _healthMetricService;
         private readonly IMapper _mapper;
 
-        public MenuController(IMenuService service, IMapper mapper)
+        public MenuController(IMenuService service, IHealthMetricService healthMetricService, IMapper mapper)
         {
             _service = service;
+            _healthMetricService = healthMetricService;
             _mapper = mapper;
         }
 
@@ -196,5 +199,33 @@ namespace Wecare.API.Controllers
                 return BadRequest(ex.Message);
             };
         }
+
+        [HttpGet("get-by-user-health-metrics/{userId}")]
+        public async Task<IActionResult> GetMenusByUserHealthMetrics(Guid userId)
+        {
+            try
+            {
+                if (userId == Guid.Empty)
+                {
+                    return BadRequest("User ID is empty");
+                }
+
+                var healthMetrics = await _healthMetricService.GetHealthMetricByUserId(userId);
+
+                if (healthMetrics == null || !healthMetrics.Any())
+                {
+                    return NotFound("No health metrics found for the user.");
+                }
+
+                var menus = await _service.GetMenusByHealthMetrics(healthMetrics);
+
+                return Ok(new ItemListResponse<MenuModel>(ConstantMessage.Success, menus));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
