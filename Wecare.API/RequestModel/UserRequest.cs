@@ -15,6 +15,7 @@ namespace Wecare.API.RequestModel
         public string? Phone { get; set; }
         public DiseaseType? DiseaseType { get; set; }
         public UserType? UserType { get; set; }
+        public UserRole? UserRole { get; set; }
 
     }
 }

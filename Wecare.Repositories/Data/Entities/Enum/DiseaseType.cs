@@ -9,6 +9,7 @@ namespace Wecare.Repositories.Data.Entities.Enum
     public enum DiseaseType
     {
         Diabetes,
-        Gout
+        Gout,
+        Both
     }
 }

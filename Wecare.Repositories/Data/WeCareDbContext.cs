@@ -67,6 +67,7 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Phone);
                 e.Property(x => x.DiseaseType).HasConversion<string>();
                 e.Property(x => x.UserType).HasConversion<string>();
+                e.Property(x => x.UserRole).HasConversion<string>();
 
                 // 1-1
                 e.HasOne(x => x.HealthMetric)

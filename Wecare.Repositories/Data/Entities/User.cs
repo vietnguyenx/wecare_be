@@ -23,6 +23,7 @@ namespace Wecare.Repositories.Data.Entities
         public string? Phone { get; set; }
         public DiseaseType? DiseaseType { get; set; }
         public UserType? UserType { get; set; }
+        public UserRole? UserRole { get; set; }
 
         public virtual HealthMetric? HealthMetric { get; set; }  
         public virtual ICollection<DietPlan>? DietPlans { get; set; }
