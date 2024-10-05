@@ -13,8 +13,8 @@ namespace Wecare.Repositories.Data.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Specialization { get; set; }
-        public string ImageUrl { get; set; }
+        public string? Specialization { get; set; }
+        public string? ImageUrl { get; set; }
 
         public virtual ICollection<Menu> Menus { get; set; }
     }

@@ -13,7 +13,7 @@ namespace Wecare.Repositories.Data.Entities
     {
         public Guid UserId { get; set; }
         public DateOnly DateAssigned { get; set; }
-        public String Period { get; set; }
+        public String? Period { get; set; }
         public Status Status { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<MenuDietPlan> MenuDietPlans { get; set; }

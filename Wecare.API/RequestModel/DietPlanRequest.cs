@@ -6,7 +6,7 @@ namespace Wecare.API.RequestModel
     {
         public Guid UserId { get; set; }
         public DateOnly DateAssigned { get; set; }
-        public String Period { get; set; }
+        public String? Period { get; set; }
         public Status Status { get; set; }
     }
 }
