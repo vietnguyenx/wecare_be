@@ -12,8 +12,8 @@ namespace Wecare.Repositories.Data.Entities
     [Table("User")]
     public class User : BaseEntity
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
         public string FullName { get; set; }
         public string? ImageUrl { get; set; }
         public string Email { get; set; }
