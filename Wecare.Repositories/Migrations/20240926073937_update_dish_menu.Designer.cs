@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeCare.Repositories.Data;
 
@@ -11,9 +12,11 @@ using WeCare.Repositories.Data;
 namespace Wecare.Repositories.Migrations
 {
     [DbContext(typeof(WeCareDbContext))]
-    partial class WeCareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240926073937_update_dish_menu")]
+    partial class update_dish_menu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,6 +51,7 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Period")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -82,6 +86,7 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -102,6 +107,7 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Specialization")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -116,13 +122,13 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<float?>("Calories")
+                    b.Property<float>("Calories")
                         .HasColumnType("real");
 
-                    b.Property<float?>("Carbohydrates")
+                    b.Property<float>("Carbohydrates")
                         .HasColumnType("real");
 
-                    b.Property<float?>("Cholesterol")
+                    b.Property<float>("Cholesterol")
                         .HasColumnType("real");
 
                     b.Property<string>("CreatedBy")
@@ -132,19 +138,21 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DishName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float?>("Fat")
+                    b.Property<float>("Fat")
                         .HasColumnType("real");
 
-                    b.Property<float?>("Fiber")
+                    b.Property<float>("Fiber")
                         .HasColumnType("real");
 
                     b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -156,13 +164,13 @@ namespace Wecare.Repositories.Migrations
                     b.Property<DateTime?>("LastUpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<float?>("Protein")
+                    b.Property<float>("Protein")
                         .HasColumnType("real");
 
-                    b.Property<float?>("Purine")
+                    b.Property<float>("Purine")
                         .HasColumnType("real");
 
-                    b.Property<float?>("Sugar")
+                    b.Property<float>("Sugar")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -178,6 +186,7 @@ namespace Wecare.Repositories.Migrations
                         .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("BloodPressure")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("BloodSugar")
@@ -189,7 +198,7 @@ namespace Wecare.Repositories.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateRecorded")
+                    b.Property<DateTime>("DateRecorded")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
@@ -202,6 +211,7 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("UricAcid")
@@ -243,7 +253,7 @@ namespace Wecare.Repositories.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsActive")
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
@@ -256,7 +266,6 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MenuName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -265,28 +274,28 @@ namespace Wecare.Repositories.Migrations
                     b.Property<string>("SuitableFor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float?>("TotalCalories")
+                    b.Property<float>("TotalCalories")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalCarbohydrates")
+                    b.Property<float>("TotalCarbohydrates")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalCholesterol")
+                    b.Property<float>("TotalCholesterol")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalFat")
+                    b.Property<float>("TotalFat")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalFiber")
+                    b.Property<float>("TotalFiber")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalProtein")
+                    b.Property<float>("TotalProtein")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalPurine")
+                    b.Property<float>("TotalPurine")
                         .HasColumnType("real");
 
-                    b.Property<float?>("TotalSugar")
+                    b.Property<float>("TotalSugar")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -386,7 +395,7 @@ namespace Wecare.Repositories.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("IsRead")
+                    b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastUpdatedBy")
@@ -396,9 +405,11 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Message")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
@@ -457,20 +468,15 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserRole")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

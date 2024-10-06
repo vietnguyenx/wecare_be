@@ -13,6 +13,7 @@ namespace Wecare.Repositories.Data.Entities.Enum
 >>>>>>>> feature/viet:Wecare.Repositories/Data/Entities/Enum/DiseaseType.cs
     {
         Diabetes,
-        Gout
+        Gout,
+        Both
     }
 }

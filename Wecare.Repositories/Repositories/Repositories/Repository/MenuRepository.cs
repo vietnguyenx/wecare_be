@@ -88,5 +88,50 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
 
             return user;
         }
+
+        public async Task<List<Menu>> GetLatestMenus()
+        {
+            return await GetQueryable()
+                .Include(m => m.Dietitian)
+                .Include(m => m.MenuDishes)
+                .OrderByDescending(m => m.CreatedDate) 
+                .Take(5) 
+                .ToListAsync();
+        }
+
+        public async Task<List<Menu>> GetMenusByHealthMetrics(List<HealthMetric> healthMetrics)
+        {
+            var queryable = GetQueryable();
+
+            foreach (var healthMetric in healthMetrics)
+            {
+                if (healthMetric.BloodSugar.HasValue && healthMetric.BloodSugar > 100) // High blood sugar
+                {
+                    queryable = queryable.Where(menu => menu.MenuDishes.All(md =>
+                        md.Dish.Carbohydrates <= 60 &&
+                        md.Dish.Sugar <= 10 &&
+                        md.Dish.Fiber >= 5 &&
+                        md.Dish.Fat <= 20 &&
+                        md.Dish.Calories <= 600
+                    ));
+                }
+
+                if (healthMetric.UricAcid.HasValue && healthMetric.UricAcid > 7) // High uric acid
+                {
+                    queryable = queryable.Where(menu => menu.MenuDishes.All(md =>
+                        md.Dish.Protein <= 50 &&
+                        md.Dish.Purine <= 150 &&
+                        md.Dish.Fat <= 20
+                    ));
+                }
+            }
+
+            return await queryable
+                .Include(m => m.Dietitian)
+                .Include(m => m.MenuDishes)
+                .ThenInclude(md => md.Dish)
+                .ToListAsync();
+        }
+
     }
 }

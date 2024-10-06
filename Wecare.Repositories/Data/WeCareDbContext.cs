@@ -67,6 +67,7 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Phone);
                 e.Property(x => x.DiseaseType).HasConversion<string>();
                 e.Property(x => x.UserType).HasConversion<string>();
+                e.Property(x => x.UserRole).HasConversion<string>();
 
                 // 1-1
                 e.HasOne(x => x.HealthMetric)
@@ -142,6 +143,15 @@ namespace WeCare.Repositories.Data
                 e.Property(x => x.Status).HasConversion<string>();
                 e.Property(x => x.IsActive);
 
+                e.Property(x => x.TotalCalories);
+                e.Property(x => x.TotalCarbohydrates);
+                e.Property(x => x.TotalProtein);
+                e.Property(x => x.TotalFat);
+                e.Property(x => x.TotalFiber);
+                e.Property(x => x.TotalSugar);
+                e.Property(x => x.TotalPurine);
+                e.Property(x => x.TotalCholesterol);
+
                 e.Property(x => x.CreatedBy);
                 e.Property(x => x.CreatedDate);
                 e.Property(x => x.LastUpdatedBy);
@@ -163,11 +173,15 @@ namespace WeCare.Repositories.Data
                 e.HasKey(x => x.Id);
                 e.Property(x => x.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
                 e.Property(x => x.DishName);
-                e.Property(x => x.Ingredients);
+                e.Property(x => x.Description);
                 e.Property(x => x.Calories);
-                e.Property(x => x.Carbs);
+                e.Property(x => x.Carbohydrates);
                 e.Property(x => x.Protein);
                 e.Property(x => x.Fat);
+                e.Property(x => x.Fiber);
+                e.Property(x => x.Sugar);
+                e.Property(x => x.Purine);
+                e.Property(x => x.Cholesterol);
                 e.Property(x => x.ImageUrl);
 
                 e.Property(x => x.CreatedBy);

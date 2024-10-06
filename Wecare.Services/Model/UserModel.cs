@@ -21,6 +21,7 @@ namespace Wecare.Services.Model
         public string? Phone { get; set; }
         public DiseaseType? DiseaseType { get; set; }
         public UserType? UserType { get; set; }
+        public UserRole? UserRole { get; set; }
 
         public HealthMetricModel? HealthMetric { get; set; }
         public IList<DietPlanModel>? DietPlans { get; set; }

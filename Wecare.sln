@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wecare.API", "Wecare.API\Wecare.API.csproj", "{27979063-26F8-480E-9F65-D1A52822663A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wecare.API", "Wecare.API\Wecare.API.csproj", "{27979063-26F8-480E-9F65-D1A52822663A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wecare.Repositories", "Wecare.Repositories\Wecare.Repositories.csproj", "{AA95E328-37ED-4FA3-8CF1-CB984B7F65FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wecare.Repositories", "Wecare.Repositories\Wecare.Repositories.csproj", "{AA95E328-37ED-4FA3-8CF1-CB984B7F65FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wecare.Services", "Wecare.Services\Wecare.Services.csproj", "{C9786262-158E-4AE7-8907-6C8BD2F4D2C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wecare.Services", "Wecare.Services\Wecare.Services.csproj", "{C9786262-158E-4AE7-8907-6C8BD2F4D2C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
