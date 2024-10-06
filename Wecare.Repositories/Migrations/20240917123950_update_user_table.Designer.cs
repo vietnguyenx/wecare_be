@@ -12,13 +12,8 @@ using WeCare.Repositories.Data;
 namespace Wecare.Repositories.Migrations
 {
     [DbContext(typeof(WeCareDbContext))]
-<<<<<<<< HEAD:Wecare.Repositories/Migrations/20240917123950_update_user_table.Designer.cs
     [Migration("20240917123950_update_user_table")]
     partial class update_user_table
-========
-    [Migration("20240916164844_Init")]
-    partial class Init
->>>>>>>> beaf0a6 (Feature/viet (#1)):Wecare.Repositories/Migrations/20240916164844_Init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -358,15 +353,7 @@ namespace Wecare.Repositories.Migrations
                         .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("Address")
-<<<<<<<< HEAD:Wecare.Repositories/Migrations/20240917123950_update_user_table.Designer.cs
                         .HasColumnType("nvarchar(max)");
-========
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
->>>>>>>> beaf0a6 (Feature/viet (#1)):Wecare.Repositories/Migrations/20240916164844_Init.Designer.cs
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -374,11 +361,7 @@ namespace Wecare.Repositories.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-<<<<<<<< HEAD:Wecare.Repositories/Migrations/20240917123950_update_user_table.Designer.cs
                     b.Property<DateTime?>("DOB")
-========
-                    b.Property<DateTime>("DOB")
->>>>>>>> beaf0a6 (Feature/viet (#1)):Wecare.Repositories/Migrations/20240916164844_Init.Designer.cs
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -408,10 +391,6 @@ namespace Wecare.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
