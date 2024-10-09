@@ -10,7 +10,7 @@ namespace Wecare.Services.Services.Interface
     public interface IDietitianService
     {
         public Task<bool> Add(DietitianModel model);
-        public Task<bool> Delete(DietitianModel model);
+        Task<bool> Delete(Guid id);
         public Task<bool> Update(DietitianModel model);
         public Task<List<DietitianModel>> GetAll();
         public Task<List<DietitianModel>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);

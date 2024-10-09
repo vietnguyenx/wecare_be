@@ -10,6 +10,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
 {
     public interface IMenuRepository : IBaseRepository<Menu>
     {
+
+        Task<List<Menu>> GetAll();
         Task<List<Menu>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<(List<Menu>, long)> Search(Menu Menu, int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<Menu?> GetById(Guid id);

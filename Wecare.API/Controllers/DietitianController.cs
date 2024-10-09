@@ -128,16 +128,24 @@ namespace Wecare.API.Controllers
         }
 
         [HttpPut("delete")]
-        public async Task<IActionResult> Delete(DietitianRequest request)
+        public async Task<IActionResult> Delete(Guid id)
         {
             try
             {
-                bool isSuccess = await _dietitianService.Delete(_mapper.Map<DietitianModel>(request));
-                return isSuccess switch
+                if (id != Guid.Empty)
                 {
-                    true => Ok(new BaseResponse(isSuccess, ConstantMessage.Success)),
-                    false => Ok(new BaseResponse(isSuccess, ConstantMessage.Fail))
-                };
+                    var isDietitian = await _dietitianService.Delete(id);
+
+                    return isDietitian switch
+                    {
+                        true => Ok(new BaseResponse(isDietitian, ConstantMessage.Success)),
+                        _ => Ok(new BaseResponse(isDietitian, ConstantMessage.Fail))
+                    };
+                }
+                else
+                {
+                    return BadRequest("It's not empty");
+                }
             }
             catch (Exception ex)
             {
