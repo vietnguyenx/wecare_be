@@ -37,16 +37,17 @@ namespace Wecare.Services.Services.Services
             }
         }
 
-        public async Task<bool> Delete(DietitianModel model)
+        public async Task<bool> Delete(Guid id)
         {
-            try
+            var entity = await _dietitianRepository.GetById(id);
+
+            if (entity == null)
             {
-                return await _dietitianRepository.Delete(_mapper.Map<Dietitian>(model));
+                return false;
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+
+            var dietitian = _mapper.Map<Dietitian>(entity);
+            return await _dietitianRepository.Delete(dietitian);
         }
 
         public async Task<List<DietitianModel>> GetAll()

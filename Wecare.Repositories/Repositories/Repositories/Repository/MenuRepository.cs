@@ -20,6 +20,17 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             _context = context;
         }
 
+        public async Task<List<Menu>> GetAll()
+        {
+            var queryable = GetQueryable();
+
+            var menus = await queryable
+                .Include(m => m.Dietitian) 
+                .ToListAsync();
+
+            return menus;
+        }
+
         public async Task<List<Menu>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder)
         {
             var queryable = GetQueryable();
