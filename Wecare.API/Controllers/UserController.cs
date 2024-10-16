@@ -197,6 +197,26 @@ namespace Wecare.API.Controllers
             }
         }
 
+        [HttpPut("updateDiseaseType/{userId}")]
+        public async Task<IActionResult> UpdateDiseaseType(Guid userId, [FromBody] UpdateDiseaseTypeRequest request)
+        {
+            try
+            {
+                var isUpdated = await _service.UpdateDiseaseType(userId, request.DiseaseType);
+
+                return isUpdated switch
+                {
+                    true => Ok(new BaseResponse(isUpdated, ConstantMessage.Success)),
+                    _ => Ok(new BaseResponse(isUpdated, ConstantMessage.Fail))
+                };
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] AuthModel authModel)

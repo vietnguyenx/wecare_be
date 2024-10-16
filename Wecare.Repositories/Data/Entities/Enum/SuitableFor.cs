@@ -8,8 +8,8 @@ namespace Wecare.Repositories.Data.Entities.Enum
 {
     public enum SuitableFor
     {
-        Gout,
         Diabetes,
+        Gout,
         Both
     }
 }
