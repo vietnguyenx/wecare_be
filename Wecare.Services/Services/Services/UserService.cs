@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Wecare.Repositories.Data.Entities;
+using Wecare.Repositories.Data.Entities.Enum;
 using Wecare.Repositories.Repositories.Repositories.Interface;
 using Wecare.Repositories.Repositories.UnitOfWork.Interface;
 using Wecare.Services.Base;
@@ -59,6 +60,22 @@ namespace Wecare.Services.Services.Services
 
             return await _repository.Update(entity);
         }
+
+        public async Task<bool> UpdateDiseaseType(Guid userId, DiseaseType? diseaseType)
+        {
+            var entity = await _repository.GetById(userId);
+
+            if (entity == null)
+            {
+                return false;
+            }
+
+            entity.DiseaseType = diseaseType; 
+            entity = await SetBaseEntityToUpdateFunc(entity);
+
+            return await _repository.Update(entity);
+        }
+
 
         public async Task<bool> UpdatePassword(UserModel userModel)
         {

@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wecare.Repositories.Data.Entities.Enum;
 using Wecare.Services.Model;
 
 namespace Wecare.Services.Services.Interface
@@ -13,6 +14,8 @@ namespace Wecare.Services.Services.Interface
         Task<bool> Add(UserModel userModel);
 
         Task<bool> Update(UserModel userModel);
+
+        Task<bool> UpdateDiseaseType(Guid userId, DiseaseType? diseaseType);
 
         Task<bool> Delete(Guid id);
         public Task<UserModel?> GetById(Guid id);
