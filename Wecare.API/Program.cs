@@ -87,6 +87,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
+
         policy.WithOrigins("https://wecare-fe-eta.vercel.app")
             .AllowAnyHeader()
             .AllowAnyMethod();
