@@ -14,5 +14,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Interface
         Task<List<DietPlan>> GetAllPagination(int pageNumber, int pageSize, string sortField, int sortOrder);
         Task<DietPlan?> GetById(Guid id);
         Task<DietPlan?> GetByUserId(Guid id);
+
+        Task<bool> IsDietPlanExists(Guid userId, DateOnly dateAssigned);
     }
 }

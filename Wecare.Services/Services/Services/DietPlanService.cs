@@ -28,6 +28,12 @@ namespace Wecare.Services.Services.Services
         {
             model.DateAssigned = model.DateAssigned.Value;
 
+            bool isExists = await _dietPlanrepository.IsDietPlanExists(model.UserId, model.DateAssigned.Value);
+            if (isExists)
+            {
+                return false;
+            }
+
             var dietPlan = _mapper.Map<DietPlan>(model);
             var setDietPlan = await SetBaseEntityToCreateFunc(dietPlan);
 

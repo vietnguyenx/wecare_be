@@ -121,7 +121,7 @@ namespace Wecare.API.Controllers
                 return isDietPlan switch
                 {
                     true => Ok(new BaseResponse(isDietPlan, ConstantMessage.Success)),
-                    _ => Ok(new BaseResponse(isDietPlan, ConstantMessage.Fail))
+                    false => BadRequest(new BaseResponse(false, "Diet plan for this date already exists.")),
                 };
             }
             catch (Exception ex)
