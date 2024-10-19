@@ -34,7 +34,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
         public async Task<DietPlan?> GetById(Guid id)
         {
             var query = GetQueryable(m => m.Id == id);
-            var session = await query.Include(m => m.User).SingleOrDefaultAsync();
+            var session = await query.Include(m => m.User)
+                                        .Include(m => m.MenuDietPlans).SingleOrDefaultAsync();
 
             return session;
         }
