@@ -74,7 +74,7 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
         public async Task<User> GetById(Guid id)
         {
             var query = GetQueryable(m => m.Id == id);
-            var user = await query.Include(m => m.HealthMetric).Include(m => m.DietPlans).SingleOrDefaultAsync();
+            var user = await query.Include(m => m.HealthMetric).Include(m => m.DietPlans).ThenInclude(dp => dp.MenuDietPlans).SingleOrDefaultAsync();
 
             return user;
         }

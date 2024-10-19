@@ -34,7 +34,8 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
         public async Task<DietPlan?> GetById(Guid id)
         {
             var query = GetQueryable(m => m.Id == id);
-            var session = await query.Include(m => m.User).SingleOrDefaultAsync();
+            var session = await query.Include(m => m.User)
+                                        .Include(m => m.MenuDietPlans).SingleOrDefaultAsync();
 
             return session;
         }
@@ -47,6 +48,10 @@ namespace Wecare.Repositories.Repositories.Repositories.Repository
             return session;
         }
 
+        public async Task<bool> IsDietPlanExists(Guid userId, DateOnly dateAssigned)
+        {
+            return await _context.DietPlans.AnyAsync(dp => dp.UserId == userId && dp.DateAssigned == dateAssigned);
+        }
 
     }
 }

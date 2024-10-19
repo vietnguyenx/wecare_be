@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Net.payOS;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -87,8 +88,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-
-        policy.WithOrigins("https://wecare-fe-eta.vercel.app")
+        //policy.WithOrigins("http://localhost:8000")
+        policy.WithOrigins("https://wecare-premium.vercel.app")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -116,6 +117,17 @@ builder.Services.AddAuthentication(options =>
             builder.Configuration.GetValue<string>("AppSettings:Token"))),
         ClockSkew = TimeSpan.Zero
     };
+});
+
+builder.Services.AddSingleton<PayOS>(provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+
+    string clientId = configuration["PaymentEnvironment:PAYOS_CLIENT_ID"] ?? throw new Exception("Cannot find PAYOS_CLIENT_ID");
+    string apiKey = configuration["PaymentEnvironment:PAYOS_API_KEY"] ?? throw new Exception("Cannot find PAYOS_API_KEY");
+    string checksumKey = configuration["PaymentEnvironment:PAYOS_CHECKSUM_KEY"] ?? throw new Exception("Cannot find PAYOS_CHECKSUM_KEY");
+
+    return new PayOS(clientId, apiKey, checksumKey);
 });
 
 builder.Services.AddAuthorization();
