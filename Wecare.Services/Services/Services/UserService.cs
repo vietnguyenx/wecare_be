@@ -76,6 +76,21 @@ namespace Wecare.Services.Services.Services
             return await _repository.Update(entity);
         }
 
+        public async Task<bool> UpdateUserType(Guid userId, UserType? userType)
+        {
+            var entity = await _repository.GetById(userId);
+
+            if (entity == null)
+            {
+                return false;
+            }
+
+            entity.UserType = userType;
+            entity = await SetBaseEntityToUpdateFunc(entity);
+
+            return await _repository.Update(entity);
+        }
+
 
         public async Task<bool> UpdatePassword(UserModel userModel)
         {
