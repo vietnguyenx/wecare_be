@@ -215,7 +215,7 @@ namespace Wecare.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        
         [HttpPut("updateUserType/{userId}")]
         public async Task<IActionResult> UpdateUserType(Guid userId, [FromBody] UpdateUserTypeRequest request)
         {
@@ -234,7 +234,6 @@ namespace Wecare.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
 
         [AllowAnonymous]
         [HttpPost("login")]
