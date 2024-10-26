@@ -16,6 +16,8 @@ namespace Wecare.Services.Services.Interface
         Task<bool> Update(UserModel userModel);
 
         Task<bool> UpdateDiseaseType(Guid userId, DiseaseType? diseaseType);
+      
+        Task<bool> UpdateUserType(Guid userId, UserType? userType);
 
         Task<bool> Delete(Guid id);
         public Task<UserModel?> GetById(Guid id);

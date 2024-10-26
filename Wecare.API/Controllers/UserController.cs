@@ -215,7 +215,25 @@ namespace Wecare.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+        [HttpPut("updateUserType/{userId}")]
+        public async Task<IActionResult> UpdateUserType(Guid userId, [FromBody] UpdateUserTypeRequest request)
+        {
+            try
+            {
+                var isUpdated = await _service.UpdateUserType(userId, request.UserType);
 
+                return isUpdated switch
+                {
+                    true => Ok(new BaseResponse(isUpdated, ConstantMessage.Success)),
+                    _ => Ok(new BaseResponse(isUpdated, ConstantMessage.Fail))
+                };
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [AllowAnonymous]
         [HttpPost("login")]
