@@ -91,7 +91,6 @@ namespace Wecare.Services.Services.Services
             return await _repository.Update(entity);
         }
 
-
         public async Task<bool> UpdatePassword(UserModel userModel)
         {
             var entity = await _repository.GetById(userModel.Id);
